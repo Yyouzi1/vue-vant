@@ -1,4 +1,4 @@
-import axios from '../utils/axios'
+import axios from '@/utils/axios'
 export function get_userinfo() {        
     return new Promise((resolve, reject) => {
         axios.get('/getUser').then(res => {

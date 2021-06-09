@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { get_userinfo } from '../api/common';
+import { get_userinfo } from '@/api/common';
 export default {
   name: 'index',
   data() {

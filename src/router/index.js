@@ -5,17 +5,17 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/', component: () => import('../pages/index.vue'), name: 'index', meta: {
+        path: '/', component: () => import('@/pages/index.vue'), name: 'index', meta: {
             title: 'index'
         }
     },
     {
-        path: '/home', component: () => import('../pages/home.vue'), name: 'home', meta: {
+        path: '/home', component: () => import('@/pages/home.vue'), name: 'home', meta: {
             title: 'home'
         }
     },
     {
-        path: '/user', component: () => import('../pages/user.vue'), name: 'user', meta: {
+        path: '/user', component: () => import('@/pages/user.vue'), name: 'user', meta: {
             title: 'user'
         }
     },

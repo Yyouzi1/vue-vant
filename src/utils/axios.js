@@ -1,6 +1,6 @@
 import axios from 'axios'
-import store from '../store'
-import loading from '../common/loading/index'
+import store from '@/store'
+import loading from '@/common/loading/index'
 // create an axios instance
 const baseURL = process.env.NODE_ENV === 'development' ? 'http://ip-api.com/json/' : 'http://test.ip-api.com/json/'
 const service = axios.create({

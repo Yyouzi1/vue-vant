@@ -12,7 +12,7 @@ const config = {
     entry: "./src/main.js",
 
     //项目的输出目录
-    mode:'development',
+    mode: 'development',
 
     output: {
 
@@ -23,7 +23,7 @@ const config = {
         //输出的文件名
 
         // filename: "bundel.js"
-        filename:'js/[name].[chunkhash].js',
+        filename: 'js/[name].[chunkhash].js',
         chunkFilename: 'js/[id].[chunkhash].js'
 
     },
@@ -48,27 +48,28 @@ const config = {
         }),
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
-        filename: "./css/[name].css",
-        chunkFilename: "./css/[id].css"
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "./css/[name].css",
+            chunkFilename: "./css/[id].css"
         }),
-         // copy custom static assets
+        // copy custom static assets
         new CopyWebpackPlugin({
-           
+
             patterns: [
-                { 
-                    from: path.resolve(__dirname,'./src/static'),
-                    to:'./static'               
+                {
+                    from: path.resolve(__dirname, './src/static'),
+                    to: './static'
                 }
             ],
         })
-       
+
 
     ],
 
     devServer: {
-        open: true,
+        // 自动打开浏览器
+        // open: true,
         //实现热更新
 
         hot: true,
@@ -90,10 +91,10 @@ const config = {
             {
                 test: /\.css$/,
                 use: [
-                  MiniCssExtractPlugin.loader,
-                  "css-loader"
+                    MiniCssExtractPlugin.loader,
+                    "css-loader"
                 ]
-              },
+            },
             {
                 test: /\.css$/,
                 loader: 'px2vw-view-loader',
@@ -102,7 +103,7 @@ const config = {
                     viewportUnit: 'vw',
                     minPixelValue: 1,
                     decimal: 3,
-                    selectorBlackList:['van-button'],//指定不需要转换的类，或者在不需要转换的，写的时候后面多跟一个类名
+                    selectorBlackList: ['van-button'],//指定不需要转换的类，或者在不需要转换的，写的时候后面多跟一个类名
                     exclude: /(\/|\\)(node_modules)(\/|\\)/, // 设置忽略文件，用正则做目录名匹配
                 }
             },
@@ -112,7 +113,12 @@ const config = {
 
         ]
     },
-   
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, "src"),
+        }
+    }
+
 
 }
 
